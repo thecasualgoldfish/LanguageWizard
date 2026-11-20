@@ -8,18 +8,99 @@
     </head>
     <body>
         <header>
-            <title>
-                LanguageWizard Flashcards
-            </title>
+            <div id="heading">
+                <a id="logo" href="index.html">
+                    LanguageWizard
+                </a>
+            </div>
         </header>
         <p id = "welcome">Spanish Flashcards</p>
-        <span class="title"></span>
-        <div class="card">
-            <input type="text" required>
+        <span id="title"></span>
+        <div id="card"> 
+            <form id="form">
+                <input id="input" type="text" required>
+            </form>
+        </div>
+        <div id="button-row"> 
+            <button id="known">
+                I know this
+            </button>
+            <button id="unknown">
+                I need to practice this
+            </button>
+        </div>
+        <div>
+            <button id="stop" type="submit">
+                Click here to submit your flashcards
+            </button>
         </div>
     </body>
     <script link="script.js"></script>
     <script>
+        let key;
+        let value;
+        let cards = {}
+        let study = {}
+        let card = document.querySelector("#card");
+        let input = document.querySelector("#input");
+        let form = document.querySelector("#form");
+        let stop = document.querySelector("#stop");
+        let known = document.querySelector("#known");
+        let unknown = document.querySelector("#unknown");
+        let title = document.querySelector("#title"); 
+        title.innerHTML = "What is the word?";
+        known.style.visibility = "hidden";
+        unknown.style.visibility = "hidden";
+    
+        function getName() {
+            form.onsubmit = function(event) {
+                key = input.value;
+                title.innerHTML = "What does it mean?";
+                input.value = "";
+                stop.onclick = function(event) {
+                    alert("Please wait until you have entered the meaning.");
+                }
+                getMeaning(key);   
+            }   
+        }
 
+        function getMeaning(key){
+            form.onsubmit = function(event) {
+                cards[key] = input.value;
+                title.innerHTML = "What does it mean?";
+                input.value = "";
+                stop.onclick = function(event) {
+                    let keys = Object.keys(cards);
+                    let vals = Object.values(cards);
+                    let card = document.querySelector("#card");
+                    let cardClicker = document.createElement("button");
+                    for (i = 0; i < Object.keys(cards).length; i++) {
+                        cardClicker.innerHTML = keys[i]
+                        title.innerHTML  = "What does this word mean?";
+                        cardClicker.onclick = function(event) {
+                            cardClick.innerHTML = vals[i];
+                            title.innerHTML = "It means";
+                            known.style.visibility = "visible";
+                            unknown.style.visibility = "visible";
+                            cardClicker.onclick = function(event) {         
+                            }
+                            known.onclick = function(event) {
+                                delete dict.key[i];
+                                unknown.style.visibility = "hidden";
+                                known.style.visibility = "hidden";
+                            }
+                            unknown.onclick = function(event) {
+                                study[keys[i]] = vals[i];
+                                unknown.style.visibility = "hidden";
+                                known.style.visibility = "hidden";
+                            }
+
+                        }
+
+                    }           
+                }
+            }
+
+        }
     </script>
 </html>
