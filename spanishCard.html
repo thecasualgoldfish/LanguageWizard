@@ -15,11 +15,15 @@
             </div>
         </header>
         <p id = "welcome">Spanish Flashcards</p>
-        <span id="title"></span>
-        <div id="card"> 
-            <form id="form">
-                <input id="input" type="text" required>
-            </form>
+        <div class="title-page">
+            <span id="title"></span>
+        </div>
+        <div id="card-row">
+            <div id="card"> 
+                <form id="form">
+                    <input id="input" required>
+                </form>
+            </div>
         </div>
         <div id="button-row"> 
             <button id="known">
@@ -29,7 +33,7 @@
                 I need to practice this
             </button>
         </div>
-        <div>
+        <div id="button-stop">
             <button id="stop" type="submit">
                 Click here to submit your flashcards
             </button>
@@ -54,6 +58,7 @@
     
         function getName() {
             form.onsubmit = function(event) {
+                event.preventDefault();
                 key = input.value;
                 title.innerHTML = "What does it mean?";
                 input.value = "";
@@ -66,10 +71,12 @@
 
         function getMeaning(key){
             form.onsubmit = function(event) {
+                event.preventDefault();
                 cards[key] = input.value;
                 title.innerHTML = "What does it mean?";
                 input.value = "";
                 stop.onclick = function(event) {
+                    event.preventDefault();
                     let keys = Object.keys(cards);
                     let vals = Object.values(cards);
                     let card = document.querySelector("#card");
@@ -78,18 +85,22 @@
                         cardClicker.innerHTML = keys[i]
                         title.innerHTML  = "What does this word mean?";
                         cardClicker.onclick = function(event) {
+                            event.preventDefault();
                             cardClick.innerHTML = vals[i];
                             title.innerHTML = "It means";
                             known.style.visibility = "visible";
                             unknown.style.visibility = "visible";
-                            cardClicker.onclick = function(event) {         
+                            cardClicker.onclick = function(event) {  
+                                event.preventDefault();       
                             }
                             known.onclick = function(event) {
+                                event.preventDefault();
                                 delete dict.key[i];
                                 unknown.style.visibility = "hidden";
                                 known.style.visibility = "hidden";
                             }
                             unknown.onclick = function(event) {
+                                event.preventDefault();
                                 study[keys[i]] = vals[i];
                                 unknown.style.visibility = "hidden";
                                 known.style.visibility = "hidden";
