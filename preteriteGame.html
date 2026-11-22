@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="style.css" rel = "stylesheet"
+    <head>
+        <title>
+            Preterite Review Game
+        </title>
+    </head>
+    <body>
+        <header id="heading">
+            <a id="logo" href="index.html">
+                LanguageWizard
+            </a>
+        </header>
+        <div class="title-row">
+            <h1 class="title">
+                Preterite Game
+            </h1>
+        </div>
+        <p id="quest"></p>
+        <div id="button-row">
+            <button class="button" id="opt1"></button>
+            <button class="button" id="opt2"></button>
+            <button class ="button" id="opt3"></button>
+            <button class="button" id="opt4"></button>
+        </div>
+        <h1 id="congrats"></h1>
+        <h1 id="no"></h1>
+    </body>
+    <script>
+        let one = document.querySelector("#opt1");
+        let two = document.querySelector("#opt2");
+        let three = document.querySelector("#opt3");
+        let four = document.querySelector("#opt4");
+        let question = document.querySelector("#quest");
+        let buttons = document.querySelectorAll(".button");
+        let congrats = document.querySelector("#congrats");
+        let sorry = document.querySelector("#no");
+        sorry.style.visibility = "hidden";
+        congrats.style.visibility = "hidden";
+                    
+        questions = ["How would you conjugate \"ser\" in the preterite in the \"Yo\" form?", 
+            "What is the preterite ending for \"Yo\" for ar verbs?",
+            "What is the preterite ending for \"Ustedes\" in ir/er verbs?",
+            "What is the preterite ending for \"Ellos\" in ir/er verbs?", 
+            "What is the preterite ending for \"Nosotros\" in ar verbs?", 
+            "What is the preterite ending for \"El/Ella/Usted\" in ar verbs?", 
+            "How would you conjugate \"ver\" in the preterite ustedes form?",
+        ]
+
+        let answers = [ 
+        ["Si", "Fui", "Fue", "Fueron"],
+        ["e", "i", "o", "iste"], 
+        ["ieron", "aron", "imos", "emos"],
+        ["aron", "e", "iste", "ieron"],
+        ["emos", "aste", "imos", "amos"],
+        ];
+        let key = ["Fui", "e", "ieron", "ieron", "amos" ];
+        let num;
+        let answer; 
+        for (i = 0; i < questions.length; i++) {
+            question.innerHTML = questions[i];
+            num = i + 1;
+            one.innerHTML = answers[i][0];
+            two.innerHTML = answers[i][1];
+            three.innerHTML = answers[i][2];
+            four.innerHTML = answers[i][3];
+            answer = key[i];
+            one.onclick =  async function(event) {
+            event.preventDefault();
+            if (num == 3 || num == 4) {
+                congrats.style.visibility = "visible";
+                congrats.innerHTML = "Correct!";
+                    
+            }
+            else {
+                sorry.style.visibility = "visible";
+                sorry.innerHTML = "Sorry, the answer was " + answer;
+            }
+            }
+            two.onclick = async function(event) {
+                event.preventDefault();
+                if (num == 1) {
+                    congrats.style.visibility = "visible";
+                    congrats.innerHTML = "Correct!";
+                        
+                }
+                else {
+                    sorry.style.visibility = "visible";
+                    sorry.innerHTML = "Sorry, the answer was " + answer;
+                }
+            }
+            three.onclick = async function(event) {
+                event.preventDefault();
+                if (num == 5) {
+                    congrats.style.visibility = "visible";
+                    congrats.innerHTML = "Correct!";
+                        
+                }
+                else {
+                    sorry.style.visibility = "visible";
+                    sorry.innerHTML = "Sorry, the answer was " + answer;
+                }
+            }
+            four.onclick = async function(event) {
+                event.preventDefault();
+                if (num == 6) {
+                    congrats.style.visibility = "visible";
+                    congrats.innerHTML = "Correct!";
+                        
+                }
+                else {
+                    sorry.style.visibility = "visible";
+                    sorry.innerHTML = "Sorry, the answer was " + answer;
+                }
+                
+            }
+        }
+        
+    </script>
+    
+</html>
