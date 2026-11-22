@@ -79,7 +79,20 @@ body {
     justify-content: center;
 }
 
-#congrats 
+#button-row {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#quest {
+    text-align: center;
+}
+
+#message-row {
+    display: flex;
+    justify-content: center;
+}
 
 #card-row {
     display: flex;
@@ -112,6 +125,26 @@ button {
     margin-top: 0px;
 }
 
+.game-title {
+    display: flex;
+    justify-content: center;
+}
+
+#row-button {
+    display: flex;
+    justify-content: center;
+}
+
+#nothanks #again {
+    width: 150px;
+    height:  15px;
+}
+
+#sure {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
 .flag {
     width: 375px;
     height: 200x;
@@ -263,7 +296,27 @@ header {
     font-size: xx-large;
     font: sans-serif;
 }
+#congrats {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 
+#no {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#sure {
+    margin-bottom: 10px;
+}
+
+#again {
+    margin-left: 10px;
+}
+
+#quest {
+    font-size: 20px;
+}
 .statement {
     margin-top: 15px;
     margin-bottom: 15px;
