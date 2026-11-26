@@ -325,3 +325,23 @@ header {
     font: sans-serif;
 
 }
+
+#oneText {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#twoText {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#threeText {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#fourText {
+    font-size: 20px;
+    margin-top: 15px;
+}

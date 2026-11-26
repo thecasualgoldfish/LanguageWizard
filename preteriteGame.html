@@ -17,10 +17,18 @@
         </h1>
         <p id="quest"></p>
         <div id="button-row">
-            <button class="button" id="opt1"></button>
-            <button class="button" id="opt2"></button>
-            <button class ="button" id="opt3"></button>
-            <button class="button" id="opt4"></button>
+            <button class="button" id="opt1">
+                <div id ="oneText"></div> 
+            </button>
+            <button class="button" id="opt2">
+                <div id ="twoText"></div> 
+            </button>
+            <button class ="button" id="opt3">
+                <div id ="threeText"></div>    
+            </button>
+            <button class="button" id="opt4">
+                <div id ="fourText"></div>              
+            </button>
         </div>
         <div id="message-row">
             <h1 id="congrats"></h1>
@@ -42,6 +50,10 @@
         let four = document.querySelector("#opt4");
         let question = document.querySelector("#quest");
         let buttons = document.querySelectorAll(".button");
+        let oneText = document.querySelector("#oneText");
+        let twoText = document.querySelector("#twoText");
+        let threeText = document.querySelector("#threeText");
+        let fourText = document.querySelector("#fourText");
         let congrats = document.querySelector("#congrats");
         let sorry = document.querySelector("#no");
         let again = document.querySelector("#again");
@@ -54,13 +66,23 @@
         sure.style.visibility = "hidden"; 
                     
         questions = [
-            "How would you conjugate \"ser\" in the preterite for \"yo\"?",
-            "What is the preterite ending for \"yo\" for -ar verbs?",
-            "What is the preterite ending for \"ustedes\" for -er/-ir verbs?",
-            "What is the preterite ending for \"ellos\" for -er/-ir verbs?",
-            "What is the preterite ending for \"nosotros\" for -ar verbs?",
-            "How would you conjugate \"ver\" in the preterite for \"ustedes\"?",
-            "What is the preterite ending for \"él/ella/usted\" for -ar verbs?"
+            "How would you conjugate \"Ser\" in the preterite for \"yo\"?",
+            "What is the preterite ending for \"yo\" for -AR verbs?",
+            "What is the preterite ending for \"ustedes\" for -ER/-IR verbs?",
+            "What is the preterite ending for \"ellos\" for -ER/-IR verbs?",
+            "What is the preterite ending for \"nosotros\" for -AR verbs?",
+            "How would you conjugate \"Ver\" in the preterite for \"ustedes\"?",
+            "What is the preterite ending for \"él/ella/usted\" for -AR verbs?",
+            "What is the preterite ending for \"yo\" in -IR verbs?",
+            "How would you conjugate \"Dar\" in the preterite for \"Tú\"?",
+            "What is the preterite ending for \"ellos\" in -AR verbs?", 
+            "What is the preterite ending for \"nosotros\" in -IR/-ER verbs?",
+            "How would you conjugate \"Ver\" in the preterite for \"yo\"?",
+            "What is the preterite ending for \"Tú\" in -AR verbs?",
+            "How would you conjugate \"Ir\" in the preterite for \"yo\"?",
+            "How would you conjugate \"Ser\" in the preterite for \"Tú\"?",
+            "How would you conjugate \"Dar\" in the preterite for \"Nosotros\"?"
+             
         ];
 
         let answers = [
@@ -70,10 +92,35 @@
             ["-aron", "-é", "-iste", "-ieron"],
             ["-emos", "-aste", "-imos", "-amos"],
             ["Vi", "Vimos", "Vieron", "Viste"],
-            ["-ió", "-ó", "-aste", "-asteis"]
+            ["-ió", "-ó", "-aste", "-asteis"],
+            ["-ió", "iamos","-ía", "ieron" ],
+            ["Diste", "Di", "Dieron", "Dio"],
+            ["-an", "iaron", "aron", "an"],
+            ["-ieron", "-emos", "-é", "-émos"],
+            ["Viste", "Vio", "Vi", "Vieron"],
+            ["-iste", "-aste", "-as", "-es"],
+            ["Fui", "Sí", "Fue", "Fueron"],
+            ["Eres", "Estas", "Fuiste", "Siste"],
+            ["Dimos", "Damos", "Daramos", "Demos"]
         ];
 
-        let key = ["Fui", "-é", "-ieron", "-ieron", "-amos", "Vieron", "-ó"];
+        let key = ["\"Fui\"", 
+        "\"-é\"",
+        "\"-ieron\"",
+        "\"-ieron\"",
+        "\"-amos\"",
+        "\"Vieron\"",
+        "\"-ó\"",
+        "\"-ía\"",
+        "\"Diste\"",
+        "\"-aron\"",
+        "\"-emos\"",
+        "\"Vi\"",
+        "\"-aste\"",
+        "\"Fui\"", 
+        "\"Fuiste\"",
+        "\"Dimos\""
+                    ];
         let num;
         let answer;
         let i = 0;
@@ -84,12 +131,12 @@
 
         one.onclick =  async function(event) {
             event.preventDefault();
-            if (num == 2 || num == 3) {
+            if (num == 2 || num == 3 || num == 9 || num == 14 || num == 16) {
                 congrats.style.visibility = "visible";
                 congrats.innerHTML = "Correct!";
                 await sleep(1000);
                 congrats.style.visibility = "hidden";
-                if (i == 6) {
+                if (i == 15) {
                     await sleep(1000);
                     congrats.style.visibility = "hidden";
                     again.style.visibility = "visible";
@@ -115,7 +162,7 @@
                 sorry.innerHTML = "Sorry, the answer was " + answer;
                 await sleep(1000);
                 sorry.style.visibility = "hidden";
-                if (i == 6) {
+                if (i == 15) {
                     await sleep(1000);
                     congrats.style.visibility = "hidden";
                     again.style.visibility = "visible";
@@ -138,12 +185,12 @@
         }
         two.onclick = async function(event) {
             event.preventDefault();
-            if (num == 1 || num == 7) {
+            if (num == 1 || num == 7 || num == 11 || num == 13) {
                 congrats.style.visibility = "visible";
                 congrats.innerHTML = "Correct!";
                 await sleep(1000);
                 congrats.style.visibility = "hidden";
-                if (i == 6) {
+                if (i == 15) {
                     await sleep(1000);
                     congrats.style.visibility = "hidden";
                     again.style.visibility = "visible";
@@ -168,7 +215,7 @@
                 sorry.innerHTML = "Sorry, the answer was " + answer;
                 await sleep(1000);
                 sorry.style.visibility = "hidden";
-                if (i == 6) {
+                if (i == 15) {
                     await sleep(1000);
                     congrats.style.visibility = "hidden";
                     again.style.visibility = "visible";
@@ -191,12 +238,12 @@
         }
         three.onclick = async function(event) {
             event.preventDefault();
-            if (num == 6) {
+            if (num == 6 || num == 8 || num == 10 || num == 12 || num == 15) {
                 congrats.style.visibility = "visible";
                 congrats.innerHTML = "Correct!";
                 await sleep(1000);
                 congrats.style.visibility = "hidden";
-                if (i == 6) {
+                if (i == 15) {
                     await sleep(1000);
                     congrats.style.visibility = "hidden";
                     again.style.visibility = "visible";
@@ -221,7 +268,7 @@
                 sorry.innerHTML = "Sorry, the answer was " + answer;
                 await sleep(1000);
                 sorry.style.visibility = "hidden";
-                if (i == 6) {
+                if (i == 15) {
                     await sleep(1000);
                     congrats.style.visibility = "hidden";
                     again.style.visibility = "visible";
@@ -249,7 +296,7 @@
                 congrats.innerHTML = "Correct!";
                 await sleep(1000);
                 congrats.style.visibility = "hidden";
-                if (i == 6) {
+                if (i == 15) {
                     await sleep(1000);
                     congrats.style.visibility = "hidden";
                     again.style.visibility = "visible";
@@ -274,7 +321,7 @@
                 sorry.innerHTML = "Sorry, the answer was " + answer;
                 await sleep(1000);
                 sorry.style.visibility = "hidden";
-                if (i == 6) {
+                if (i == 15) {
                     await sleep(1000);
                     congrats.style.visibility = "hidden";
                     again.style.visibility = "visible";
@@ -303,13 +350,15 @@
             nothanks.style.visibility = "hidden";
             question.innerHTML = questions[i];
             num = i + 1;
-            one.innerHTML = answers[i][0];
-            two.innerHTML = answers[i][1];
-            three.innerHTML = answers[i][2];
-            four.innerHTML = answers[i][3];
+            oneText.innerHTML = answers[i][0];
+            twoText.innerHTML = answers[i][1];
+            threeText.innerHTML = answers[i][2];
+            fourText.innerHTML = answers[i][3];
             answer = key[i];
         }
         changeQuestion(i);
     </script>
     
 </html>
+
+
