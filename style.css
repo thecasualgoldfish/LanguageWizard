@@ -97,6 +97,7 @@ body {
 #card-row {
     display: flex;
     justify-content: center;
+    height: 450px;
 }
 
 .title-page {
@@ -210,6 +211,7 @@ header {
 #statement {
     font-size: 20px;
     margin-left: 10px;
+    margin-bottom: 30px;
 }
 
 .lesson-row {
