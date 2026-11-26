@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="style.css" rel = "stylesheet">
+    <head>
+        <title>
+            Present Tense +Review Game
+        </title>
+    </head>
+    <body>
+        <header id="heading">
+            <a id="logo" href="index.html">
+                LanguageWizard
+            </a>
+        </header>
+        <h1 class="game-title">
+            Present Tense Game
+        </h1>
+        <p id="quest"></p>
+        <div id="button-row">
+            <button class="button" id="opt1">
+                <div id ="oneText"></div> 
+            </button>
+            <button class="button" id="opt2">
+                <div id ="twoText"></div> 
+            </button>
+            <button class ="button" id="opt3">
+                <div id ="threeText"></div>    
+            </button>
+            <button class="button" id="opt4">
+                <div id ="fourText"></div>              
+            </button>
+        </div>
+        <div id="message-row">
+            <h1 id="congrats"></h1>
+        </div>
+        <div id = "message-row">
+            <h1 id="no"></h1>
+        </div>
+        <div id="sure">You have completed the game, do you want to play again?</div>
+        <div id = row-button>
+            <button id = "again">Yes, play again</button>
+            <button id= "nothanks">No, take me to home</button>
+        </div>
+        
+    </body>
+    <script>
+        let one = document.querySelector("#opt1");
+        let two = document.querySelector("#opt2");
+        let three = document.querySelector("#opt3");
+        let four = document.querySelector("#opt4");
+        let question = document.querySelector("#quest");
+        let buttons = document.querySelectorAll(".button");
+        let oneText = document.querySelector("#oneText");
+        let twoText = document.querySelector("#twoText");
+        let threeText = document.querySelector("#threeText");
+        let fourText = document.querySelector("#fourText");
+        let congrats = document.querySelector("#congrats");
+        let sorry = document.querySelector("#no");
+        let again = document.querySelector("#again");
+        let nothanks = document.querySelector("#nothanks");
+        let sure = document.querySelector("#sure")
+        sorry.style.visibility = "hidden";
+        congrats.style.visibility = "hidden";
+        again.style.visibility = "hidden";
+        nothanks.style.visibility = "hidden";
+        sure.style.visibility = "hidden"; 
+                    
+        questions = [
+            "How would you conjugate \"Ser\" in the preterite for \"yo\"?",
+            "What is the preterite ending for \"yo\" for -AR verbs?",
+            "What is the preterite ending for \"ustedes\" for -ER/-IR verbs?",
+            "What is the preterite ending for \"ellos\" for -ER/-IR verbs?",
+            "What is the preterite ending for \"nosotros\" for -AR verbs?",
+            "How would you conjugate \"Ver\" in the preterite for \"ustedes\"?",
+            "What is the preterite ending for \"él/ella/usted\" for -AR verbs?",
+            "What is the preterite ending for \"yo\" in -IR verbs?",
+            "How would you conjugate \"Dar\" in the preterite for \"Tú\"?",
+            "What is the preterite ending for \"ellos\" in -AR verbs?", 
+            "What is the preterite ending for \"nosotros\" in -IR/-ER verbs?",
+            "How would you conjugate \"Ver\" in the preterite for \"yo\"?",
+            "What is the preterite ending for \"Tú\" in -AR verbs?",
+            "How would you conjugate \"Ir\" in the preterite for \"yo\"?",
+            "How would you conjugate \"Ser\" in the preterite for \"Tú\"?",
+            "How would you conjugate \"Dar\" in the preterite for \"Nosotros\"?"
+             
+        ];
+
+        let answers = [
+            ["Sí", "Fui", "Fue", "Fueron"],
+            ["-é", "-í", "-ó", "-aste"],
+            ["-ieron", "-aron", "-imos", "-emos"],
+            ["-aron", "-é", "-iste", "-ieron"],
+            ["-emos", "-aste", "-imos", "-amos"],
+            ["Vi", "Vimos", "Vieron", "Viste"],
+            ["-ió", "-ó", "-aste", "-asteis"],
+            ["-ió", "iamos","-í", "ieron" ],
+            ["Diste", "Di", "Dieron", "Dio"],
+            ["-an", "iaron", "aron", "an"],
+            ["-ieron", "-imos", "-é", "-émos"],
+            ["Viste", "Vio", "Vi", "Vieron"],
+            ["-iste", "-aste", "-as", "-es"],
+            ["Fui", "Sí", "Fue", "Fueron"],
+            ["Eres", "Estas", "Fuiste", "Siste"],
+            ["Dimos", "Damos", "Daramos", "Demos"]
+        ];
+
+        let key = ["\"Fui\"", 
+        "\"-é\"",
+        "\"-ieron\"",
+        "\"-ieron\"",
+        "\"-amos\"",
+        "\"Vieron\"",
+        "\"-ó\"",
+        "\"-í\"",
+        "\"Diste\"",
+        "\"-aron\"",
+        "\"-imos\"",
+        "\"Vi\"",
+        "\"-aste\"",
+        "\"Fui\"", 
+        "\"Fuiste\"",
+        "\"Dimos\""
+                    ];
+        let num;
+        let answer;
+        let i = 0;
+        function sleep(time)
+        {
+            return new Promise((resolve) => setTimeout(resolve, time));
+        }
+
+        one.onclick =  async function(event) {
+            event.preventDefault();
+            if (num == 2 || num == 3 || num == 9 || num == 14 || num == 16) {
+                congrats.style.visibility = "visible";
+                congrats.innerHTML = "Correct!";
+                await sleep(1000);
+                congrats.style.visibility = "hidden";
+                if (i == 15) {
+                    await sleep(1000);
+                    congrats.style.visibility = "hidden";
+                    again.style.visibility = "visible";
+                    nothanks.style.visibility = "visible";
+                    sure.style.visibility = "visible"; 
+                    again.onclick = function(event) {
+                        i = 0;  
+                        changeQuestion(i);
+                    }
+                    nothanks.onclick = function(event) {
+                        window.location.href = "index.html";
+                        return;
+                    }
+                }
+                else {
+                    i++;
+                    changeQuestion(i);
+                }
+            }
+
+            else {
+                sorry.style.visibility = "visible";
+                sorry.innerHTML = "Sorry, the answer was " + answer;
+                await sleep(1000);
+                sorry.style.visibility = "hidden";
+                if (i == 15) {
+                    await sleep(1000);
+                    congrats.style.visibility = "hidden";
+                    again.style.visibility = "visible";
+                    nothanks.style.visibility = "visible";
+                    sure.style.visibility = "visible"; 
+                    again.onclick = function(event) {
+                        i = 0;  
+                        changeQuestion(i);
+                    }
+                    nothanks.onclick = function(event) {
+                        window.location.href = "index.html";
+                        return;
+                    }
+                }
+                else {
+                    i++;
+                    changeQuestion(i);
+                }
+            }
+        }
+        two.onclick = async function(event) {
+            event.preventDefault();
+            if (num == 1 || num == 7 || num == 11 || num == 13) {
+                congrats.style.visibility = "visible";
+                congrats.innerHTML = "Correct!";
+                await sleep(1000);
+                congrats.style.visibility = "hidden";
+                if (i == 15) {
+                    await sleep(1000);
+                    congrats.style.visibility = "hidden";
+                    again.style.visibility = "visible";
+                    nothanks.style.visibility = "visible";
+                    sure.style.visibility = "visible"; 
+                    again.onclick = function(event) {
+                        i = 0;  
+                        changeQuestion(i);
+                    }
+                    nothanks.onclick = function(event) {
+                        window.location.href = "index.html";
+                        return;
+                    }
+                }
+                else {
+                    i++;
+                    changeQuestion(i);
+                }
+            }
+            else {
+                sorry.style.visibility = "visible";
+                sorry.innerHTML = "Sorry, the answer was " + answer;
+                await sleep(1000);
+                sorry.style.visibility = "hidden";
+                if (i == 15) {
+                    await sleep(1000);
+                    congrats.style.visibility = "hidden";
+                    again.style.visibility = "visible";
+                    nothanks.style.visibility = "visible";
+                    sure.style.visibility = "visible"; 
+                    again.onclick = function(event) {
+                        i = 0;  
+                        changeQuestion(i);
+                    }
+                    nothanks.onclick = function(event) {
+                        window.location.href = "index.html";
+                        return;
+                    }
+                }
+                else {
+                    i++;
+                    changeQuestion(i);
+                }
+            }
+        }
+        three.onclick = async function(event) {
+            event.preventDefault();
+            if (num == 6 || num == 8 || num == 10 || num == 12 || num == 15) {
+                congrats.style.visibility = "visible";
+                congrats.innerHTML = "Correct!";
+                await sleep(1000);
+                congrats.style.visibility = "hidden";
+                if (i == 15) {
+                    await sleep(1000);
+                    congrats.style.visibility = "hidden";
+                    again.style.visibility = "visible";
+                    nothanks.style.visibility = "visible";
+                    sure.style.visibility = "visible"; 
+                    again.onclick = function(event) {
+                        i = 0;  
+                        changeQuestion(i);
+                    }
+                    nothanks.onclick = function(event) {
+                        window.location.href = "index.html";
+                        return;
+                    }
+                }
+                else {
+                    i++;
+                    changeQuestion(i);
+                }
+            }
+            else {
+                sorry.style.visibility = "visible";
+                sorry.innerHTML = "Sorry, the answer was " + answer;
+                await sleep(1000);
+                sorry.style.visibility = "hidden";
+                if (i == 15) {
+                    await sleep(1000);
+                    congrats.style.visibility = "hidden";
+                    again.style.visibility = "visible";
+                    nothanks.style.visibility = "visible";
+                    sure.style.visibility = "visible"; 
+                    again.onclick = function(event) {
+                        i = 0;  
+                        changeQuestion(i);
+                    }
+                    nothanks.onclick = function(event) {
+                        window.location.href = "index.html";
+                        return;
+                    }
+                }
+                else {
+                    i++;
+                    changeQuestion(i);
+                }
+            }
+        }
+        four.onclick = async function(event) {
+            event.preventDefault();
+            if (num == 4 || num == 5) {
+                congrats.style.visibility = "visible";
+                congrats.innerHTML = "Correct!";
+                await sleep(1000);
+                congrats.style.visibility = "hidden";
+                if (i == 15) {
+                    await sleep(1000);
+                    congrats.style.visibility = "hidden";
+                    again.style.visibility = "visible";
+                    nothanks.style.visibility = "visible";
+                    sure.style.visibility = "visible"; 
+                    again.onclick = function(event) {
+                        i = 0;  
+                        changeQuestion(i);
+                    }
+                    nothanks.onclick = function(event) {
+                        window.location.href = "index.html";
+                        return;
+                    }
+                }
+                else {
+                    i++;
+                    changeQuestion(i);
+                }
+            }
+            else {
+                sorry.style.visibility = "visible";
+                sorry.innerHTML = "Sorry, the answer was " + answer;
+                await sleep(1000);
+                sorry.style.visibility = "hidden";
+                if (i == 15) {
+                    await sleep(1000);
+                    congrats.style.visibility = "hidden";
+                    again.style.visibility = "visible";
+                    nothanks.style.visibility = "visible";
+                    sure.style.visibility = "visible"; 
+                    again.onclick = function(event) {
+                        i = 0;  
+                        changeQuestion(i);
+                    }
+                    nothanks.onclick = function(event) {
+                        window.location.href = "index.html";
+                        return;
+                    }
+                }
+                else {
+                    i++;
+                    changeQuestion(i);
+                }
+            }
+            
+        }
+        
+        function changeQuestion(i) {
+            sure.style.visibility = "hidden"; 
+            again.style.visibility = "hidden";
+            nothanks.style.visibility = "hidden";
+            question.innerHTML = questions[i];
+            num = i + 1;
+            oneText.innerHTML = answers[i][0];
+            twoText.innerHTML = answers[i][1];
+            threeText.innerHTML = answers[i][2];
+            fourText.innerHTML = answers[i][3];
+            answer = key[i];
+        }
+        changeQuestion(i);
+    </script>
+    
+</html>
+
+
