@@ -6,8 +6,8 @@ LanguageWizard is a site that is dedicated in helping you increase your fluency 
 never really understood before!
 
 ## SPANISH 
-As of November 22nd, 2026, the only thing working in the Spanish section is the preterite tense practice and game.
-To play, click the argentinian flag above the word "Spanish" on the front page. Then click, "Learn spanish" and go to conjugations. Here you will see the option to learn the preterite tense. Read the lesson, and when you are done, find the button at the very bottom to play our corresponding game! 
+As of November 25th, 2026, the only things working in the Spanish section are the preterite tense practice and game.
+To play, click the argentinian flag above the word "Spanish" on the front page. Then click, "Learn spanish" and go to conjugations. Here you will see the option to learn the preterite / imperfect tense. Take your pick! Read the lesson, and when you are done, find the button at the very bottom to play our corresponding game! 
 
 ## KOREAN
 As of November 22nd, 2026, no work has been done for the Korean portion of our site.

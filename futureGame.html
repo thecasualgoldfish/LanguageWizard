@@ -3,7 +3,7 @@
     <link href="style.css" rel = "stylesheet">
     <head>
         <title>
-            Preterite Review Game
+            Future Review Game
         </title>
     </head>
     <body>
@@ -13,7 +13,7 @@
             </a>
         </header>
         <h1 class="game-title">
-            Preterite Game
+            Future Game
         </h1>
         <p id="quest"></p>
         <div id="button-row">
@@ -66,60 +66,60 @@
         sure.style.visibility = "hidden"; 
                     
         questions = [
-            "How would you conjugate \"Ser\" in the preterite for \"yo\"?",
-            "What is the preterite ending for \"yo\" for -AR verbs?",
-            "What is the preterite ending for \"ustedes\" for -ER/-IR verbs?",
-            "What is the preterite ending for \"ellos\" for -ER/-IR verbs?",
-            "What is the preterite ending for \"nosotros\" for -AR verbs?",
-            "How would you conjugate \"Ver\" in the preterite for \"ustedes\"?",
-            "What is the preterite ending for \"él/ella/usted\" for -AR verbs?",
-            "What is the preterite ending for \"yo\" in -IR verbs?",
-            "How would you conjugate \"Dar\" in the preterite for \"Tú\"?",
-            "What is the preterite ending for \"ellos\" in -AR verbs?", 
-            "What is the preterite ending for \"nosotros\" in -IR/-ER verbs?",
-            "How would you conjugate \"Ver\" in the preterite for \"yo\"?",
-            "What is the preterite ending for \"Tú\" in -AR verbs?",
-            "How would you conjugate \"Ir\" in the preterite for \"yo\"?",
-            "How would you conjugate \"Ser\" in the preterite for \"Tú\"?",
-            "How would you conjugate \"Dar\" in the preterite for \"Nosotros\"?"
+            "How would you conjugate \"Ser\" in the future for \"yo\"?",
+            "What is the future ending for \"yo\"?",
+            "What is the future ending for \"ustedes\"?",
+            "What is the future ending for \"ellos\"?",
+            "What is the future ending for \"nosotros\"?",
+            "How would you conjugate \"Ver\" in the future for \"ustedes\"?",
+            "What is the future ending for \"él/ella/usted\"?",
+            "What is the future ending for \"tú\"?", 
+            "How would you conjugate \"Dar\" in the future for \"Tú\"?",
+            "How would you conjugate \"Haber\" in the future for \"yo\"?",
+            "How would you conjugate \"tener\" in the future for \"ustedes\"?",
+            "How would you conjugate \"salir\" in the future for \"tú\"?",
+            "How would you conjugate \"caber\" in the future for \"nosotros\"?",
+            "How would you conjugate \"Ir\" in the future for \"ellos\"?",
+            "How would you conjugate \"Ser\" in the future for \"Tú\"?",
+            "How would you conjugate \"Saber\" in the future for \"Nosotros\"?"
              
         ];
 
         let answers = [
-            ["Sí", "Fui", "Fue", "Fueron"],
-            ["-é", "-í", "-ó", "-aste"],
-            ["-ieron", "-aron", "-imos", "-emos"],
-            ["-aron", "-é", "-iste", "-ieron"],
-            ["-emos", "-aste", "-imos", "-amos"],
-            ["Vi", "Vimos", "Vieron", "Viste"],
-            ["-ió", "-ó", "-aste", "-asteis"],
-            ["-ió", "iamos","-í", "ieron" ],
-            ["Diste", "Di", "Dieron", "Dio"],
-            ["-an", "iaron", "aron", "an"],
-            ["-ieron", "-imos", "-é", "-émos"],
-            ["Viste", "Vio", "Vi", "Vieron"],
-            ["-iste", "-aste", "-as", "-es"],
-            ["Fui", "Sí", "Fue", "Fueron"],
-            ["Eres", "Estas", "Fuiste", "Siste"],
-            ["Dimos", "Damos", "Daramos", "Demos"]
+            ["Será", "Seré", "Sere", "Sé"],
+            ["-é", "-á", "-e", "-emos"],
+            ["-án", "-en", "-én", "-an"],
+            ["-én", "-en", "-an", "-án"],
+            ["-émos", "-amos", "-imos", "-emos"],
+            ["Verá", "Veran", "Verán", "Verén"],
+            ["-a", "-á", "-é", "-í"],
+            ["-és", "as","-ás", "es" ],
+            ["Darás", "Darés", "Daras", "Dás"],
+            ["Habrá", "Habre", "Habré", "Haberé"],
+            ["Tenerán", "Tendrán", "Tendran", "Teneran"],
+            ["Saliras", "Salirás", "Saldrás", "Saldras"],
+            ["Cabrémos", "Cabremos", "Caberemos", "Cabramos"],
+            ["Irán", "Iran", "Irá", "Ián"],
+            ["Seras", "Seas", "Serás", "Seás"],
+            ["Sabremos", "Saberemos", "Sabrémos", "Sabramos"]
         ];
 
         let key = ["\"Fui\"", 
         "\"-é\"",
+        "\"-án\"",
         "\"-ieron\"",
-        "\"-ieron\"",
-        "\"-amos\"",
-        "\"Vieron\"",
-        "\"-ó\"",
-        "\"-í\"",
-        "\"Diste\"",
-        "\"-aron\"",
-        "\"-imos\"",
-        "\"Vi\"",
-        "\"-aste\"",
-        "\"Fui\"", 
-        "\"Fuiste\"",
-        "\"Dimos\""
+        "\"-emos\"",
+        "\"Verán\"",
+        "\"-á\"",
+        "\"-ás\"",
+        "\"Darás\"",
+        "\"Habré\"",
+        "\"Tendrán\"",
+        "\"Saldrás\"",
+        "\"Cabremos\"",
+        "\"Irán\"", 
+        "\"Serás\"",
+        "\"Sabremos\""
                     ];
         let num;
         let answer;
